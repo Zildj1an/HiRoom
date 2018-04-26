@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".activity.AdvertisementActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/advTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Habitacion en calle Jumilla, 42"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/advImgSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/advTitle" />
+
+        <RelativeLayout
+            android:id="@+id/advDetails"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/advImgSwitch"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/advPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:text="300€/mes"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/advSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/advPrice"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingStart="15dp"
+                android:text="70m" />
+
+            <TextView
+                android:id="@+id/advFloor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/advSize"
+                android:textStyle="bold"
+                android:paddingStart="15dp"
+                android:text="5ª Planta"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/advTitleDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/advDetails"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"
+            android:text="Descripción"/>
+
+        <TextView
+            android:id="@+id/advDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/advTitleDescription"
+            android:layout_margin="5dp"
+            android:text="@string/lorem_ipsum" />
+
+        <TextView
+            android:id="@+id/advTitleUbication"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/advDescription"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"
+            android:text="Ubicación"/>
+
+    </RelativeLayout>
+
+</ScrollView>

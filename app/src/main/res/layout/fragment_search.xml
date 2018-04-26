@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.SearchFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/seaImage"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/roomdeg" />
+
+        <EditText
+            android:id="@+id/seaSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seaImage"
+            android:background="@drawable/edittext_search"
+            android:drawableStart="@drawable/ic_search_black"
+            android:drawablePadding="10dp"
+            android:hint="@string/edit_search"
+            android:layout_centerHorizontal="true"
+            android:minLines="1"
+            android:maxLines="1"/>
+
+        <Button
+            android:id="@+id/seaSearchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search"
+            android:background="@drawable/button_search"
+            android:layout_below="@+id/seaSearch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/seaAddAdvertisement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/publish_your_room"
+            android:backgroundTint="@color/pink"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"/>
+
+    </RelativeLayout>
+</FrameLayout>

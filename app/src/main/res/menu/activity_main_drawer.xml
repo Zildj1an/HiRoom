@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/menu1">
+        <item
+            android:id="@+id/navSearchAdvertisements"
+            android:icon="@drawable/ic_search_black"
+            android:title="@string/new_search" />
+        <item
+            android:id="@+id/navAddAdvertisement"
+            android:icon="@drawable/ic_add_box"
+            android:title="@string/new_advertisement" />
+        <item
+            android:id="@+id/navYourAdvertisements"
+            android:icon="@drawable/ic_list_black"
+            android:title="@string/yours_advertisements" />
+    </group>
+
+    <group
+        android:checkableBehavior="single"
+        android:id="@+id/menu2">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="@string/log_out" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_info_black_24dp"
+            android:title="@string/about" />
+    </group>
+
+</menu>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="titles">
+        <item>HiRoom</item>
+        <item>Nuevo anuncio</item>
+        <item>Tus anuncios</item>
+        <item>Acerca de</item>
+    </string-array>
+</resources>

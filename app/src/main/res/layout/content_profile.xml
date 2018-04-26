@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.ProfileActivity"
+    tools:showIn="@layout/activity_profile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/proCardViewName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="2dp"
+            app:contentPadding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/proName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Pedro Ramirez Gutierrez, 31"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/proCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/proName"
+                    android:text="Madrid"
+                    />
+
+                <ImageView
+                    android:id="@+id/proGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_male"
+                    android:layout_below="@+id/proCity"/>
+
+                <ImageView
+                    android:id="@+id/proSmoker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_below="@+id/proCity"
+                    android:layout_toEndOf="@+id/proGender"
+                    android:src="@drawable/ic_no_smoker_red_24dp" />
+
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/proCardViewDescription"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="2dp"
+            app:contentPadding="10dp">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/proAboutMe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/about_me"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/proDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/proAboutMe"
+                    android:text="@string/lorem_ipsum"/>
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="?android:attr/listDivider"
+                    android:layout_below="@+id/proDescription"/>
+
+                <TextView
+                    android:id="@+id/proPartying"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/divider"
+                    android:text="@string/partying" />
+
+                <ProgressBar
+                    android:id="@+id/proProgressBarPartying"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_below="@+id/proPartying"
+                    android:max="100"
+                    android:progress="50"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:progressDrawable="@drawable/progress_horizontal" />
+
+                <TextView
+                    android:id="@+id/proOrganized"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/proProgressBarPartying"
+                    android:text="@string/organized" />
+
+                <ProgressBar
+                    android:id="@+id/proProgressBarOrganized"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_below="@+id/proOrganized"
+                    android:max="100"
+                    android:progress="75"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:progressDrawable="@drawable/progress_horizontal" />
+
+                <TextView
+                    android:id="@+id/proAthlete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/proProgressBarOrganized"
+                    android:text="@string/athlete" />
+
+                    <ProgressBar
+                    android:id="@+id/proProgressBarAthlete"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_below="@+id/proAthlete"
+                    android:max="100"
+                    android:progress="30"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:progressDrawable="@drawable/progress_horizontal" />
+
+                <TextView
+                    android:id="@+id/proFreak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/proProgressBarAthlete"
+                    android:text="@string/freak" />
+
+                    <ProgressBar
+                    android:id="@+id/proProgressBarFreak"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_below="@+id/proFreak"
+                    android:max="100"
+                    android:progress="15"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:progressDrawable="@drawable/progress_horizontal" />
+
+                <TextView
+                    android:id="@+id/proSociable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/proProgressBarFreak"
+                    android:text="@string/sociable" />
+
+                <ProgressBar
+                    android:id="@+id/proProgressBarSociable"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_below="@+id/proSociable"
+                    android:max="100"
+                    android:progress="65"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:progressDrawable="@drawable/progress_horizontal" />
+
+                <TextView
+                    android:id="@+id/proActive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/proProgressBarSociable"
+                    android:text="@string/active" />
+
+                <ProgressBar
+                    android:id="@+id/proProgressBarActive"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_below="@+id/proActive"
+                    android:max="100"
+                    android:progress="85"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:progressDrawable="@drawable/progress_horizontal" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="@string/repoprt"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/pink"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
