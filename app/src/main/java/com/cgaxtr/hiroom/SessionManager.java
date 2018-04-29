@@ -33,7 +33,7 @@ public class SessionManager {
         editor.putString(KEY_JWT, jwt);
         editor.putString(KEY_NAME, user.getName());
         editor.putString(KEY_EMAIL, user.getEmail());
-        editor.putString(KEY_IMG_PATH, user.getImgPath());
+        editor.putString(KEY_IMG_PATH, user.getPathImg());
 
         editor.commit();
     }

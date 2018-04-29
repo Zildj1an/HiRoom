@@ -19,6 +19,9 @@
     <string name="password">Contraseña</string>
     <string name="sign_up">¿No eres miembro? Regístrate ahora</string>
     <string name="login">Login</string>
+    <string name="networkError">Ups, algo salió mal</string>
+    <string name="jsonError">Vaya, algo ha salido mal</string>
+    <string name="invalidUser">Usuario o contraseña incorrectos</string>
 
     <!-- error labels for login and register activities -->
     <string name="error_email">Introduzca una direccion de email valida</string>

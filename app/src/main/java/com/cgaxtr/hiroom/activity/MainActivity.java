@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -22,6 +23,7 @@ import com.cgaxtr.hiroom.fragment.AboutFragment;
 import com.cgaxtr.hiroom.fragment.AddAdvertisementFragment;
 import com.cgaxtr.hiroom.fragment.ListAdvertisementsFragment;
 import com.cgaxtr.hiroom.fragment.SearchFragment;
+import com.cgaxtr.hiroom.model.User;
 
 import java.util.ArrayList;
 
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity
     private String[] titles;
     private int navIndex = 0;
     private SessionManager sessionManager;
+    private TextView user, email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,10 @@ public class MainActivity extends AppCompatActivity
         });
 
         titles = getResources().getStringArray(R.array.titles);
+
+        user = headerView.findViewById(R.id.nav_user);
+        email = headerView.findViewById(R.id.nav_email);
+        loadDataUser();
         loadFragment();
     }
 
@@ -149,5 +156,12 @@ public class MainActivity extends AppCompatActivity
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(SAVED_FRAGMENT, navIndex);
+    }
+
+    private void loadDataUser(){
+        User u = sessionManager.getUserData();
+        user.setText(u.getName());
+        email.setText(u.getEmail());
+
     }
 }
