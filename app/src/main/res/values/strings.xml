@@ -25,12 +25,14 @@
 
     <!-- error labels for login and register activities -->
     <string name="error_email">Introduzca una direccion de email valida</string>
-    <string name="error_pass">Debe tener una longitud de al menos 8 caracteres</string>
+    <string name="error_pass">Debe tener una longitud de al menos 4 caracteres</string>
+    <string name="error_name">Introduzca un nombre</string>
 
     <!-- labels for register form -->
     <string name="name">Nombre</string>
     <string name="register">Regístrate</string>
     <string name="sign_in">¿Ya registrado? Inicia sesión</string>
+    <string name="alreadyExists">El email ya está en uso</string>
 
     <!-- label for login dialog -->
     <string name="authenticating">Authenticating...</string>

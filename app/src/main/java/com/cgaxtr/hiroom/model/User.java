@@ -19,6 +19,8 @@ public class User {
     private int sociable;
     private int active;
 
+    public User(){ }
+
     public User(String name, String email, String imgPath){
         this.name = name;
         this.email = email;
