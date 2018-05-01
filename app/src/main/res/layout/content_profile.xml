@@ -30,7 +30,14 @@
                     android:id="@+id/proName"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Pedro Ramirez Gutierrez, 31"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/proAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/proName"
+                    android:layout_marginStart="20dp"
                     android:textSize="20sp" />
 
                 <TextView
@@ -38,7 +45,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/proName"
-                    android:text="Madrid"
                     />
 
                 <ImageView
@@ -47,7 +53,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:src="@drawable/ic_male"
-                    android:layout_below="@+id/proCity"/>
+                    android:layout_below="@+id/proCity"
+                    android:contentDescription="@string/gender"/>
 
                 <ImageView
                     android:id="@+id/proSmoker"
@@ -56,9 +63,8 @@
                     android:layout_margin="5dp"
                     android:layout_below="@+id/proCity"
                     android:layout_toEndOf="@+id/proGender"
-                    android:src="@drawable/ic_no_smoker_red_24dp" />
-
-
+                    android:src="@drawable/ic_no_smoker_red_24dp"
+                    android:contentDescription="@string/smoker"/>
 
             </RelativeLayout>
 
@@ -91,8 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_below="@+id/proAboutMe"
-                    android:text="@string/lorem_ipsum"/>
+                    android:layout_below="@+id/proAboutMe"/>
 
                 <View
                     android:id="@+id/divider"
@@ -116,7 +121,7 @@
                     android:layout_height="12dp"
                     android:layout_below="@+id/proPartying"
                     android:max="100"
-                    android:progress="50"
+                    android:progress="0"
                     style="@android:style/Widget.ProgressBar.Horizontal"
                     android:progressDrawable="@drawable/progress_horizontal" />
 
@@ -133,7 +138,7 @@
                     android:layout_height="12dp"
                     android:layout_below="@+id/proOrganized"
                     android:max="100"
-                    android:progress="75"
+                    android:progress="0"
                     style="@android:style/Widget.ProgressBar.Horizontal"
                     android:progressDrawable="@drawable/progress_horizontal" />
 
@@ -150,7 +155,7 @@
                     android:layout_height="12dp"
                     android:layout_below="@+id/proAthlete"
                     android:max="100"
-                    android:progress="30"
+                    android:progress="0"
                     style="@android:style/Widget.ProgressBar.Horizontal"
                     android:progressDrawable="@drawable/progress_horizontal" />
 
@@ -167,7 +172,7 @@
                     android:layout_height="12dp"
                     android:layout_below="@+id/proFreak"
                     android:max="100"
-                    android:progress="15"
+                    android:progress="0"
                     style="@android:style/Widget.ProgressBar.Horizontal"
                     android:progressDrawable="@drawable/progress_horizontal" />
 
@@ -184,7 +189,7 @@
                     android:layout_height="12dp"
                     android:layout_below="@+id/proSociable"
                     android:max="100"
-                    android:progress="65"
+                    android:progress="0"
                     style="@android:style/Widget.ProgressBar.Horizontal"
                     android:progressDrawable="@drawable/progress_horizontal" />
 
@@ -201,7 +206,7 @@
                     android:layout_height="12dp"
                     android:layout_below="@+id/proActive"
                     android:max="100"
-                    android:progress="85"
+                    android:progress="0"
                     style="@android:style/Widget.ProgressBar.Horizontal"
                     android:progressDrawable="@drawable/progress_horizontal" />
 

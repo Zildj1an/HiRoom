@@ -4,7 +4,9 @@ public class User {
 
     private int id;
     private String name;
+    private String surname;
     private String email;
+    private String birthDate;
     private String pass;
     private String pathImg;
     private String city;
@@ -27,6 +29,28 @@ public class User {
         this.pathImg = imgPath;
     }
 
+    //constructor to GSON parser
+    public User(int id, String name, String surname, String email, String birthDate, String pass, String pathImg, String city, String gender, Boolean smoker, String worker, String description, int partying, int organized, int athlete, int freak, int sociable, int active) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.birthDate = birthDate;
+        this.pass = pass;
+        this.pathImg = pathImg;
+        this.city = city;
+        this.gender = gender;
+        this.smoker = smoker;
+        this.worker = worker;
+        this.description = description;
+        this.partying = partying;
+        this.organized = organized;
+        this.athlete = athlete;
+        this.freak = freak;
+        this.sociable = sociable;
+        this.active = active;
+    }
+
     public int getId() {
         return id;
     }
@@ -43,12 +67,28 @@ public class User {
         this.name = name;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getPass() {

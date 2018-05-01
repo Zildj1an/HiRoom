@@ -49,6 +49,8 @@
     <string name="sociable">Sociable</string>
     <string name="active">Activo</string>
     <string name="repoprt">Denunciar Usuario</string>
+    <string name="smoker">smoker</string>
+    <string name="gender">gender</string>
 
     <!-- labels for search fragment -->
     <string name="edit_search">Cidudad, Barrio, Localidad…</string>

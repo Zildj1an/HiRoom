@@ -10,6 +10,7 @@ public class SessionManager {
 
     private static final String KEY_LOGGEDIN = "logedIn";
     private static final String KEY_JWT = "jwt";
+    private static final String KEY_ID = "id";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_NAME = "name";
     private static final String KEY_IMG_PATH = "userImg";
@@ -31,6 +32,7 @@ public class SessionManager {
 
         editor.putBoolean(KEY_LOGGEDIN, true);
         editor.putString(KEY_JWT, jwt);
+        editor.putInt(KEY_ID, user.getId());
         editor.putString(KEY_NAME, user.getName());
         editor.putString(KEY_EMAIL, user.getEmail());
         editor.putString(KEY_IMG_PATH, user.getPathImg());
@@ -46,6 +48,10 @@ public class SessionManager {
         return sharedPreferences.getString(KEY_JWT, null);
     }
 
+    public int getId(){
+        return sharedPreferences.getInt(KEY_ID, 0);
+    }
+
     public void logOut(){
         editor.clear();
         editor.commit();
@@ -56,7 +62,20 @@ public class SessionManager {
         String name = sharedPreferences.getString(KEY_NAME,null);
         String email = sharedPreferences.getString(KEY_EMAIL, null);
         String path = sharedPreferences.getString(KEY_IMG_PATH, null);
+        int id = sharedPreferences.getInt(KEY_ID, 0);
 
-        return new User(name, email, path);
+        User u = new User(name, email, path);
+        u.setId(id);
+
+        return u;
+    }
+
+    public void updateSession(User user){
+        editor.putInt(KEY_ID, user.getId());
+        editor.putString(KEY_NAME, user.getName());
+        editor.putString(KEY_EMAIL, user.getEmail());
+        editor.putString(KEY_IMG_PATH, user.getPathImg());
+
+        editor.commit();
     }
 }

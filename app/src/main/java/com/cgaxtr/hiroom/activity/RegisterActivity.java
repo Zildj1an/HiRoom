@@ -64,11 +64,11 @@ public class RegisterActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createDialog();
                 String user = name.getText().toString();
                 String mail = email.getText().toString();
                 String pass = password.getText().toString();
                 if(validate(user, mail, pass)){
+                    createDialog();
                     User u = new User();
                     u.setName(user);
                     u.setEmail(mail);
