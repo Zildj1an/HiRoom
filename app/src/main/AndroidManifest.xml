@@ -29,13 +29,18 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.ProfileActivity"
-            android:label="Profile"
+            android:label="Perfil"
             android:parentActivityName=".activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.AdvertisementActivity"
             android:label=""
             android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.EditProfileActivity"
+            android:parentActivityName=".activity.ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

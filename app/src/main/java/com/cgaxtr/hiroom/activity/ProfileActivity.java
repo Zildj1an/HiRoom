@@ -1,5 +1,6 @@
 package com.cgaxtr.hiroom.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
+import java.io.InterruptedIOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView name, city, description;
     private ImageView gender, smoker;
     private ProgressBar partying, organized, athlete, freak, sociable, active;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.proToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle(new SessionManager(this).getUserData().getName());
 
         sessionManager = new SessionManager(getApplicationContext());
 
@@ -49,7 +53,8 @@ public class ProfileActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(getApplicationContext(), EditProfileActivity.class);
+                startActivity(i);
             }
         });
 
@@ -70,16 +75,18 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void loadUserData(int id){
         String url = UrlsAPI.GET_USER.replace("{id}", Integer.toString(id));
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 User u = new Gson().fromJson(response.toString(), User.class);
+                user = u;
                 populateData(u);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("ERROR", error.getCause().toString());
+                //Log.d("ERROR", error.getCause().toString());
             }
         }) {
             @Override
@@ -94,9 +101,6 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void populateData(User user){
-
-        getSupportActionBar().setTitle(user.getName());
-
         name.setText(user.getName());
         city.setText(user.getCity());
 

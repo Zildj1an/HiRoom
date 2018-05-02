@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.ProfileActivity"
+    tools:showIn="@layout/activity_edit_profile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="@string/editName"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/editTextName"
+            android:id="@+id/editTextSurname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editSurname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="@string/editSurname"
+                android:inputType="text"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/editTextSurname"
+            android:id="@+id/editTextBirthdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editBirthdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="@string/editBirthdate"
+                android:inputType="text"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/editTextBirthdate"
+            android:id="@+id/editTextCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="@string/editCity"
+                android:inputType="text"/>
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/editTextGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/editGender"
+            android:layout_below="@+id/editTextCity"
+            android:gravity="center_horizontal"
+            android:textSize="25sp"
+            android:padding="10dp"/>
+
+        <RadioGroup
+            android:id="@+id/editRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/editTextGender"
+            android:layout_centerHorizontal="true">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/editTextDefine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/editDefine"
+            android:layout_below="@+id/editRadioGroup"
+            android:gravity="center_horizontal"
+            android:textSize="25sp"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/editTextPartiying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextDefine"
+            android:text="@string/partying"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
+        <SeekBar
+            android:id="@+id/editPartying"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_below="@+id/editTextPartiying"
+            android:progressDrawable="@drawable/progress_horizontal"
+            android:thumb="@drawable/thumb"
+            android:splitTrack="false"/>
+
+        <TextView
+            android:id="@+id/editTextOrganized"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editPartying"
+            android:text="@string/organized"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
+        <SeekBar
+            android:id="@+id/editOrganized"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_below="@+id/editTextOrganized"
+            android:progressDrawable="@drawable/progress_horizontal"
+            android:thumb="@drawable/thumb"
+            android:splitTrack="false"/>
+
+        <TextView
+            android:id="@+id/editTextAthlete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editOrganized"
+            android:text="@string/athlete"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
+        <SeekBar
+            android:id="@+id/editAthlete"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_below="@+id/editTextAthlete"
+            android:progressDrawable="@drawable/progress_horizontal"
+            android:thumb="@drawable/thumb"
+            android:splitTrack="false"/>
+
+        <TextView
+            android:id="@+id/editTextFreak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editAthlete"
+            android:text="@string/freak"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
+        <SeekBar
+            android:id="@+id/editFreak"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_below="@+id/editTextFreak"
+            android:progressDrawable="@drawable/progress_horizontal"
+            android:thumb="@drawable/thumb"
+            android:splitTrack="false"/>
+
+        <TextView
+            android:id="@+id/editTextSociable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editFreak"
+            android:text="@string/sociable"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
+        <SeekBar
+            android:id="@+id/editSociable"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_below="@+id/editTextSociable"
+            android:progressDrawable="@drawable/progress_horizontal"
+            android:thumb="@drawable/thumb"
+            android:splitTrack="false"/>
+
+        <TextView
+            android:id="@+id/editTextActive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editSociable"
+            android:text="@string/sociable"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
+        <SeekBar
+            android:id="@+id/editActive"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_below="@+id/editTextActive"
+            android:progressDrawable="@drawable/progress_horizontal"
+            android:thumb="@drawable/thumb"
+            android:splitTrack="false"/>
+
+        <TextView
+            android:id="@+id/editTextAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/editAbout"
+            android:layout_below="@+id/editActive"
+            android:gravity="center_horizontal"
+            android:textSize="25sp"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/editAboutMe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextAbout"
+            android:hint="@string/editAboutHint"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="@string/editSave"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/pink"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/editAboutMe"/>
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

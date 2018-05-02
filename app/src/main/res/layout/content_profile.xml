@@ -52,7 +52,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:src="@drawable/ic_male"
                     android:layout_below="@+id/proCity"
                     android:contentDescription="@string/gender"/>
 
@@ -63,7 +62,6 @@
                     android:layout_margin="5dp"
                     android:layout_below="@+id/proCity"
                     android:layout_toEndOf="@+id/proGender"
-                    android:src="@drawable/ic_no_smoker_red_24dp"
                     android:contentDescription="@string/smoker"/>
 
             </RelativeLayout>
@@ -149,7 +147,7 @@
                     android:layout_below="@+id/proProgressBarOrganized"
                     android:text="@string/athlete" />
 
-                    <ProgressBar
+                <ProgressBar
                     android:id="@+id/proProgressBarAthlete"
                     android:layout_width="match_parent"
                     android:layout_height="12dp"
@@ -166,7 +164,7 @@
                     android:layout_below="@+id/proProgressBarAthlete"
                     android:text="@string/freak" />
 
-                    <ProgressBar
+                <ProgressBar
                     android:id="@+id/proProgressBarFreak"
                     android:layout_width="match_parent"
                     android:layout_height="12dp"

@@ -66,7 +66,17 @@
     <string name="open_source">Software open source</string>
 
 
-
+    <!-- labels for edit profile-->
+    <string name="editName">Nombre</string>
+    <string name="editSurname">Apellido</string>
+    <string name="editBirthdate">Fecha de nacimiento</string>
+    <string name="editCity">Ciudad de residencia(actual)</string>
+    <string name="editGender">¿Cuál es tu género?</string>
+    <string name="editWorker">¿Y tu situación?</string>
+    <string name="editDefine">Me defino como…</string>
+    <string name="editAbout">Un poco acerca de mi</string>
+    <string name="editAboutHint">Cuenta un poquito sobre ti para la gente te conozca</string>
+    <string name="editSave">guardar</string>
 
 
     <string name="title_activity_profile">ProfileActivity</string>
