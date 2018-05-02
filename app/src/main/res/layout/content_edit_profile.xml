@@ -11,7 +11,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="15dp">
 
         <android.support.design.widget.TextInputLayout
@@ -55,7 +55,10 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:hint="@string/editBirthdate"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -81,6 +84,7 @@
             android:text="@string/editGender"
             android:layout_below="@+id/editTextCity"
             android:gravity="center_horizontal"
+            android:textColor="@android:color/black"
             android:textSize="25sp"
             android:padding="10dp"/>
 
@@ -94,11 +98,13 @@
 
             <RadioButton
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:button="@drawable/radio_button_male" />
 
             <RadioButton
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:button="@drawable/radio_button_female"/>
 
         </RadioGroup>
 
@@ -109,6 +115,7 @@
             android:text="@string/editDefine"
             android:layout_below="@+id/editRadioGroup"
             android:gravity="center_horizontal"
+            android:textColor="@android:color/black"
             android:textSize="25sp"
             android:padding="10dp"/>
 
@@ -118,6 +125,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editTextDefine"
             android:text="@string/partying"
+            android:textColor="@android:color/black"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"/>
         <SeekBar
@@ -136,6 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editPartying"
             android:text="@string/organized"
+            android:textColor="@android:color/black"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"/>
         <SeekBar
@@ -154,6 +163,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editOrganized"
             android:text="@string/athlete"
+            android:textColor="@android:color/black"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"/>
         <SeekBar
@@ -172,6 +182,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editAthlete"
             android:text="@string/freak"
+            android:textColor="@android:color/black"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"/>
         <SeekBar
@@ -190,6 +201,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editFreak"
             android:text="@string/sociable"
+            android:textColor="@android:color/black"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"/>
         <SeekBar
@@ -208,6 +220,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editSociable"
             android:text="@string/sociable"
+            android:textColor="@android:color/black"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"/>
         <SeekBar
@@ -227,6 +240,7 @@
             android:text="@string/editAbout"
             android:layout_below="@+id/editActive"
             android:gravity="center_horizontal"
+            android:textColor="@android:color/black"
             android:textSize="25sp"
             android:padding="10dp"/>
 
@@ -236,7 +250,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editTextAbout"
             android:hint="@string/editAboutHint"
-            />
+            android:inputType="text"
+            android:scrollbars="vertical"/>
 
         <Button
             android:layout_width="match_parent"

@@ -39,7 +39,8 @@
         <activity
             android:name=".activity.EditProfileActivity"
             android:parentActivityName=".activity.ProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
         </activity>
     </application>
 
