@@ -23,14 +23,26 @@
                 android:layout_alignParentTop="true"
                 android:scaleType="centerCrop"/>
 
+            <TextView
+                android:id="@+id/cardAdvNumPic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:paddingBottom="3dp"
+                android:paddingEnd="3dp"
+                android:layout_alignBottom="@id/cardAdvImgage"
+                android:layout_toStartOf="@+id/ic_photo"
+                android:textStyle="bold"/>
+
             <ImageView
+                android:id="@+id/ic_photo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_photo_camera_white_24dp"
                 android:elevation="10dp"
                 android:paddingEnd="10dp"
                 android:layout_alignBottom="@id/cardAdvImgage"
-                android:layout_alignEnd="@id/cardAdvImgage"/>
+                android:layout_alignEnd="@id/cardAdvImgage" />
 
             <TextView
                 android:id="@+id/cardAdvTitle"

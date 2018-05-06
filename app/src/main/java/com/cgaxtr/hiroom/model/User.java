@@ -1,11 +1,15 @@
 package com.cgaxtr.hiroom.model;
 
-public class User {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class User implements Parcelable{
 
     private int id;
     private String name;
     private String surname;
     private String email;
+    private int phoneNumber;
     private String birthDate;
     private String pass;
     private String pathImg;
@@ -29,27 +33,6 @@ public class User {
         this.pathImg = imgPath;
     }
 
-    //constructor to GSON parser
-    public User(int id, String name, String surname, String email, String birthDate, String pass, String pathImg, String city, String gender, Boolean smoker, String worker, String description, int partying, int organized, int athlete, int freak, int sociable, int active) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.birthDate = birthDate;
-        this.pass = pass;
-        this.pathImg = pathImg;
-        this.city = city;
-        this.gender = gender;
-        this.smoker = smoker;
-        this.worker = worker;
-        this.description = description;
-        this.partying = partying;
-        this.organized = organized;
-        this.athlete = athlete;
-        this.freak = freak;
-        this.sociable = sociable;
-        this.active = active;
-    }
 
     public int getId() {
         return id;
@@ -81,6 +64,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getBirthDate() {
@@ -194,4 +185,67 @@ public class User {
     public void setActive(int active) {
         this.active = active;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeString(surname);
+        dest.writeString(email);
+        dest.writeInt(phoneNumber);
+        dest.writeString(birthDate);
+        dest.writeString(pass);
+        dest.writeString(pathImg);
+        dest.writeString(city);
+        dest.writeString(gender);
+        dest.writeByte((byte) (smoker ? 1 : 0));
+        dest.writeString(worker);
+        dest.writeString(description);
+        dest.writeInt(partying);
+        dest.writeInt(organized);
+        dest.writeInt(athlete);
+        dest.writeInt(freak);
+        dest.writeInt(sociable);
+        dest.writeInt(active);
+    }
+
+    protected User(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        surname = in.readString();
+        email = in.readString();
+        phoneNumber = in.readInt();
+        birthDate = in.readString();
+        pass = in.readString();
+        pathImg = in.readString();
+        city = in.readString();
+        gender = in.readString();
+        byte tmpSmoker = in.readByte();
+        smoker = tmpSmoker == 0 ? null : tmpSmoker == 1;
+        worker = in.readString();
+        description = in.readString();
+        partying = in.readInt();
+        organized = in.readInt();
+        athlete = in.readInt();
+        freak = in.readInt();
+        sociable = in.readInt();
+        active = in.readInt();
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 }

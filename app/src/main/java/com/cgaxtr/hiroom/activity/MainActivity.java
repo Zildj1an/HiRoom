@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,13 +25,15 @@ import com.cgaxtr.hiroom.fragment.AddAdvertisementFragment;
 import com.cgaxtr.hiroom.fragment.ListAdvertisementsFragment;
 import com.cgaxtr.hiroom.fragment.SearchFragment;
 import com.cgaxtr.hiroom.model.User;
+import com.cgaxtr.hiroom.utils.UrlsAPI;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SearchFragment.ButtonsListeners {
 
     private static final String SAVED_FRAGMENT = "fragmentState";
+    private static final String KEY_URL = "KEY_URL";
 
     private Toolbar toolbar;
     private DrawerLayout drawer;
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity
     private int navIndex = 0;
     private SessionManager sessionManager;
     private TextView user, email;
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +111,8 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.navYourAdvertisements:
                 navIndex = 2;
+                bundle = new Bundle();
+                bundle.putString(KEY_URL, UrlsAPI.GET_SELF_ADVERTISEMENTS.replace("{id}", Integer.toString(sessionManager.getId())));
                 break;
             case R.id.nav_logout:
                 sessionManager.logOut();
@@ -120,7 +126,6 @@ public class MainActivity extends AppCompatActivity
         }
 
         loadFragment();
-        loadTitle();
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -137,6 +142,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case 2:
                 fg = new ListAdvertisementsFragment();
+                fg.setArguments(bundle);
                 break;
             case 3:
                 fg = new AboutFragment();
@@ -146,6 +152,7 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_layout, fg);
         transaction.commit();
+        loadTitle();
     }
 
     private void loadTitle(){
@@ -163,5 +170,20 @@ public class MainActivity extends AppCompatActivity
         user.setText(u.getName());
         email.setText(u.getEmail());
 
+    }
+
+    @Override
+    public void onSearchClickedEvent() {
+        EditText where = findViewById(R.id.seaSearch);
+        String city = where.getText().toString();
+        //put data into bundle
+
+    }
+
+    @Override
+    public void onAddClickedEvent() {
+        navIndex = 1;
+        loadFragment();
+        navigationView.getMenu().getItem(navIndex).setChecked(true);
     }
 }

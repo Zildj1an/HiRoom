@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -24,16 +23,19 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
-import java.io.InterruptedIOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    private static final String KEY_USER = "key_user";
+
     private Toolbar toolbar;
     private FloatingActionButton fab;
     private SessionManager sessionManager;
-    private TextView name, city, description;
+    private TextView name, city, description, phone, age;
     private ImageView gender, smoker;
     private ProgressBar partying, organized, athlete, freak, sociable, active;
     private User user;
@@ -54,6 +56,8 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), EditProfileActivity.class);
+                //TODO check if user data it's correct in edit profile
+                i.putExtra(KEY_USER, user);
                 startActivity(i);
             }
         });
@@ -69,6 +73,8 @@ public class ProfileActivity extends AppCompatActivity {
         freak = findViewById(R.id.proProgressBarFreak);
         sociable = findViewById(R.id.proProgressBarSociable);
         active = findViewById(R.id.proProgressBarActive);
+        phone = findViewById(R.id.proPhone);
+        age = findViewById(R.id.proAge);
 
         loadUserData(sessionManager.getId());
     }
@@ -129,5 +135,27 @@ public class ProfileActivity extends AppCompatActivity {
         freak.setProgress(user.getFreak());
         sociable.setProgress(user.getSociable());
         active.setProgress(user.getActive());
+        phone.setText(String.format(getResources().getConfiguration().locale,"%d",user.getPhoneNumber()));
+        //TODO age
+        //age.setText(");
+
+    }
+
+    private String getAge(int year, int month, int day){
+        Calendar dob = Calendar.getInstance();
+        Calendar today = Calendar.getInstance();
+
+        dob.set(year, month, day);
+
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
+            age--;
+        }
+
+        Integer ageInt = new Integer(age);
+        String ageS = ageInt.toString();
+
+        return ageS;
     }
 }

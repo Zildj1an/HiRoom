@@ -11,12 +11,14 @@ import android.widget.EditText;
 import com.cgaxtr.hiroom.R;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class EditProfileActivity extends AppCompatActivity {
 
-    private EditText name, surname, date, city;
+    private EditText name, surname, date, city, phone;
     private android.support.design.widget.TextInputLayout birthdate;
 
     @Override
@@ -32,6 +34,11 @@ public class EditProfileActivity extends AppCompatActivity {
                 calendar.set(Calendar.YEAR, year);
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                String myFormat = "dd/MMMM/yyyy";
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, getResources().getConfiguration().locale);
+                date.setText(sdf.format(calendar.getTime()));
+
+
             }
         };
 

@@ -63,6 +63,22 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_below="@+id/editTextBirthdate"
+            android:id="@+id/editTextPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="@string/editphone"
+                android:inputType="phone"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/editTextPhone"
             android:id="@+id/editTextCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -89,7 +105,7 @@
             android:padding="10dp"/>
 
         <RadioGroup
-            android:id="@+id/editRadioGroup"
+            android:id="@+id/editRadioGroupGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -109,11 +125,41 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/editTextSmoker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/editSmoker"
+            android:layout_below="@+id/editRadioGroupGender"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:paddingTop="10dp"/>
+
+        <RadioGroup
+            android:id="@+id/editRadioGroupSmoker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/editTextSmoker"
+            android:layout_centerHorizontal="true">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/radio_button_no_smoker"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/radio_button_smoker"/>
+
+        </RadioGroup>
+
+        <TextView
             android:id="@+id/editTextDefine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/editDefine"
-            android:layout_below="@+id/editRadioGroup"
+            android:layout_below="@+id/editRadioGroupSmoker"
             android:gravity="center_horizontal"
             android:textColor="@android:color/black"
             android:textSize="25sp"
@@ -219,7 +265,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/editSociable"
-            android:text="@string/sociable"
+            android:text="@string/active"
             android:textColor="@android:color/black"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"/>
