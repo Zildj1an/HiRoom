@@ -4,7 +4,180 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.AddAdvertisementFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
 
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/addTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <EditText
+                    android:id="@+id/addTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="@string/addTitle"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/addTextCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/addTextTitle">
+
+                <EditText
+                    android:id="@+id/addCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="@string/addCity"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/addType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/tracks"
+                android:layout_below="@+id/addTextCity"
+                android:paddingTop="10dp"
+                android:layout_marginTop="5dp"
+                />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/addTextAdress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/addTextCity"
+                android:layout_toEndOf="@+id/addType">
+
+                <EditText
+                    android:id="@+id/addAdress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="@string/addAddress"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/addTextNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/addTextAdress">
+
+                <EditText
+                    android:id="@+id/addNumber"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="@string/addNumber" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/addTextFloor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/addTextAdress"
+                android:layout_toEndOf="@+id/addTextNumber"
+                android:layout_toStartOf="@+id/addTextSize"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/addFloor"
+                    android:layout_width="95dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="@string/addFloor"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/addTextSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/addTextAdress"
+                android:layout_alignParentEnd="true">
+
+                <EditText
+                    android:id="@+id/addSize"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="@string/addSize"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/addTextPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/addPrice"
+                android:layout_below="@id/addTextNumber"
+                android:textAlignment="center"
+                android:padding="10dp"
+                android:textSize="17sp"
+                android:textColor="@android:color/black"/>
+
+            <EditText
+                android:id="@+id/addPrice"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/addTextPrice"
+                android:maxLines="1"
+                android:inputType="number"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:hint="@string/empty"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/coin"
+                android:layout_toEndOf="@id/addPrice"
+                android:layout_below="@+id/addTextPrice"
+                android:textSize="30sp"/>
+
+            <TextView
+                android:id="@+id/addTextDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/addDescription"
+                android:layout_below="@+id/addPrice"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                android:textColor="@android:color/black"/>
+
+            <EditText
+                android:id="@+id/addDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/addDesc"
+                android:layout_below="@+id/addTextDescription"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/addDescription"
+                android:backgroundTint="@color/pink"
+                android:text="@string/addPublish"
+                android:textColor="@color/white"
+                />
+        </RelativeLayout>
+    </ScrollView>
 </FrameLayout>

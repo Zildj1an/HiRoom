@@ -6,4 +6,12 @@
         <item>Tus anuncios</item>
         <item>Acerca de</item>
     </string-array>
+    
+    <string-array name="tracks">
+        <item>Calle</item>
+        <item>Avenida</item>
+        <item>Plaza</item>
+        <item>Glorieta</item>
+        <item>Travesia</item>
+    </string-array>
 </resources>

@@ -78,23 +78,31 @@
     <string name="editSave">guardar</string>
     <string name="editphone">Número de teléfono</string>
 
-    <!-- labels for advertisment activity -->
+    <!-- labels for advertisement activity -->
     <string name="room">Habitacion en </string>
+    <string name="description">Descripción</string>
+    <string name="place">Ubicación</string>
 
     <!-- other strings like €, m^2... -->
     <string name="meter">m\u00B2</string>
     <string name="price_month">€/mes</string>
     <string name="floor">ª planta</string>
+    <string name="coin">€</string>
+    <string name="empty">─</string>
+
+    <!-- labels for add advertisement fragment-->
+    <string name="addTitle">Título (ej: habitacion grande y luminosa)</string>
+    <string name="addCity">Cidudad</string>
+    <string name="addPrice">Precio mensual</string>
+    <string name="addAddress">Dirección</string>
+    <string name="addPublish">Publicar</string>
+    <string name="addDescription">Descripción</string>
+    <string name="addDesc">Escribe algo sobre tu habitación, piso o compañeros</string>
+    <string name="addNumber">Num</string>
+    <string name="addFloor">Planta</string>
+    <string name="addSize">Tamaño</string>
 
 
     <string name="title_activity_profile">ProfileActivity</string>
-
-    <!-- TODO remove this-->
-    <string name="lorem_ipsum">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-    </string>
-
 
 </resources>

@@ -94,7 +94,9 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else if (navIndex != 0){
             navIndex = 0;
+            navigationView.getMenu().getItem(navIndex).setChecked(true);
             loadFragment();
+
         }else {
             super.onBackPressed();
         }

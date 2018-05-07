@@ -101,8 +101,9 @@
             android:layout_below="@+id/editTextCity"
             android:gravity="center_horizontal"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
-            android:padding="10dp"/>
+            android:textSize="20sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="5dp"/>
 
         <RadioGroup
             android:id="@+id/editRadioGroupGender"
@@ -132,8 +133,9 @@
             android:layout_below="@+id/editRadioGroupGender"
             android:gravity="center_horizontal"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
-            android:paddingTop="10dp"/>
+            android:textSize="20sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="5dp"/>
 
         <RadioGroup
             android:id="@+id/editRadioGroupSmoker"
@@ -162,8 +164,9 @@
             android:layout_below="@+id/editRadioGroupSmoker"
             android:gravity="center_horizontal"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
-            android:padding="10dp"/>
+            android:textSize="20sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="5dp"/>
 
         <TextView
             android:id="@+id/editTextPartiying"
@@ -287,7 +290,7 @@
             android:layout_below="@+id/editActive"
             android:gravity="center_horizontal"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:padding="10dp"/>
 
         <EditText

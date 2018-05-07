@@ -28,7 +28,7 @@
             android:drawablePadding="10dp"
             android:hint="@string/edit_search"
             android:layout_centerHorizontal="true"
-            android:minLines="1"
+            android:inputType="text"
             android:maxLines="1"/>
 
         <Button
