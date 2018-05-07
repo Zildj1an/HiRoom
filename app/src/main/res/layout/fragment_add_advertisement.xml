@@ -13,10 +13,32 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp">
 
+            <TextView
+                android:id="@+id/addTextImages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/addPhotos"
+                android:textAlignment="center"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/addTextAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/addAbout"
+                android:layout_below="@id/addTextImages"
+                android:textAlignment="center"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"/>
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/addTextTitle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/addTextAbout">
 
                 <EditText
                     android:id="@+id/addTitle"
@@ -49,7 +71,7 @@
                 android:drawSelectorOnTop="true"
                 android:entries="@array/tracks"
                 android:layout_below="@+id/addTextCity"
-                android:paddingTop="10dp"
+                android:paddingTop="20dp"
                 android:layout_marginTop="5dp"
                 />
 
@@ -129,7 +151,7 @@
                 android:layout_below="@id/addTextNumber"
                 android:textAlignment="center"
                 android:padding="10dp"
-                android:textSize="17sp"
+                android:textSize="20sp"
                 android:textColor="@android:color/black"/>
 
             <EditText
@@ -159,7 +181,7 @@
                 android:text="@string/addDescription"
                 android:layout_below="@+id/addPrice"
                 android:textAlignment="center"
-                android:textSize="17sp"
+                android:textSize="20sp"
                 android:textColor="@android:color/black"/>
 
             <EditText

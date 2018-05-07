@@ -101,6 +101,8 @@
     <string name="addNumber">Num</string>
     <string name="addFloor">Planta</string>
     <string name="addSize">Tamaño</string>
+    <string name="addPhotos">Fotos</string>
+    <string name="addAbout">Sobre la habitación</string>
 
 
     <string name="title_activity_profile">ProfileActivity</string>
