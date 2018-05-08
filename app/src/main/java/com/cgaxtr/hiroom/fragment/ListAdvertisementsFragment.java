@@ -87,7 +87,7 @@ public class ListAdvertisementsFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("ERROR", error.toString());
-                //TO IMPLEMENT
+                //TODO IMPLEMENT
             }
         });
 

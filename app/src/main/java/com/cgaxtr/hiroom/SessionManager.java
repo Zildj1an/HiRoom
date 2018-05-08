@@ -71,7 +71,6 @@ public class SessionManager {
     }
 
     public void updateSession(User user){
-        editor.putInt(KEY_ID, user.getId());
         editor.putString(KEY_NAME, user.getName());
         editor.putString(KEY_EMAIL, user.getEmail());
         editor.putString(KEY_IMG_PATH, user.getPathImg());

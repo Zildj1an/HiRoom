@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.cgaxtr.hiroom.R;
 import com.cgaxtr.hiroom.SessionManager;
 import com.cgaxtr.hiroom.model.User;
@@ -23,9 +26,12 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -39,6 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView gender, smoker;
     private ProgressBar partying, organized, athlete, freak, sociable, active;
     private User user;
+    private Button report;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.proToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle(new SessionManager(this).getUserData().getName());
+        setTitle(getResources().getString(R.string.title_activity_profile));
 
         sessionManager = new SessionManager(getApplicationContext());
 
@@ -56,7 +63,6 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), EditProfileActivity.class);
-                //TODO check if user data it's correct in edit profile
                 i.putExtra(KEY_USER, user);
                 startActivity(i);
             }
@@ -75,8 +81,19 @@ public class ProfileActivity extends AppCompatActivity {
         active = findViewById(R.id.proProgressBarActive);
         phone = findViewById(R.id.proPhone);
         age = findViewById(R.id.proAge);
+        report = findViewById(R.id.proReport);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         loadUserData(sessionManager.getId());
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     private void loadUserData(int id){
@@ -107,7 +124,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void populateData(User user){
-        name.setText(user.getName());
+        name.setText(String.format(getResources().getConfiguration().locale, "%s %s", user.getName(), user.getSurname()));
         city.setText(user.getCity());
 
         if(user.getGender() != null){
@@ -135,27 +152,38 @@ public class ProfileActivity extends AppCompatActivity {
         freak.setProgress(user.getFreak());
         sociable.setProgress(user.getSociable());
         active.setProgress(user.getActive());
-        phone.setText(String.format(getResources().getConfiguration().locale,"%d",user.getPhoneNumber()));
-        //TODO age
-        //age.setText(");
+        phone.setText(String.format(getResources().getConfiguration().locale,"%d", user.getPhoneNumber()));
 
+        if(user.getBirthDate() != null)
+            age.setText(String.format(getResources().getConfiguration().locale, "%d %s", getAge(user.getBirthDate()), getResources().getString(R.string.age)));
+
+        if(sessionManager.getId() == user.getId()){
+            report.setVisibility(View.INVISIBLE);
+        }else{
+            fab.setVisibility(View.VISIBLE);
+        }
     }
 
-    private String getAge(int year, int month, int day){
+    private int getAge(String date){
+        String format = "dd/MM/yyyy";
         Calendar dob = Calendar.getInstance();
         Calendar today = Calendar.getInstance();
+        SimpleDateFormat sdf = new  SimpleDateFormat(format);
+        Date d = null;
 
-        dob.set(year, month, day);
+        try {
+            d = sdf.parse(date);
+        } catch (ParseException e) {
+            //TODO implement
+            Log.d("DATE_ERROR", e.toString());
+        }
 
+        dob.setTime(d);
         int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
-
         if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
             age--;
         }
 
-        Integer ageInt = new Integer(age);
-        String ageS = ageInt.toString();
-
-        return ageS;
+        return age;
     }
 }

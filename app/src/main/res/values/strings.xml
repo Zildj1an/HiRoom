@@ -48,6 +48,7 @@
     <string name="repoprt">Denunciar Usuario</string>
     <string name="smoker">smoker</string>
     <string name="gender">gender</string>
+    <string name="age">años</string>
 
     <!-- labels for search fragment -->
     <string name="edit_search">Cidudad, Barrio, Localidad…</string>
@@ -67,6 +68,7 @@
     <!-- labels for edit profile-->
     <string name="editName">Nombre</string>
     <string name="editSurname">Apellido</string>
+    <string name="editEmail">Email</string>
     <string name="editBirthdate">Fecha de nacimiento</string>
     <string name="editCity">Ciudad de residencia(actual)</string>
     <string name="editGender">¿Cuál es tu género?</string>
@@ -77,6 +79,7 @@
     <string name="editAboutHint">Cuenta un poquito sobre ti para que la gente te conozca</string>
     <string name="editSave">guardar</string>
     <string name="editphone">Número de teléfono</string>
+    <string name="editError">Ups algo salió mal…</string>
 
     <!-- labels for advertisement activity -->
     <string name="room">Habitacion en </string>
@@ -105,6 +108,6 @@
     <string name="addAbout">Sobre la habitación</string>
 
 
-    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_profile">Perfil</string>
 
 </resources>

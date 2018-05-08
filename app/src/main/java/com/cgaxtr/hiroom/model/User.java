@@ -225,8 +225,7 @@ public class User implements Parcelable{
         pathImg = in.readString();
         city = in.readString();
         gender = in.readString();
-        byte tmpSmoker = in.readByte();
-        smoker = tmpSmoker == 0 ? null : tmpSmoker == 1;
+        smoker = in.readByte() != 0;
         worker = in.readString();
         description = in.readString();
         partying = in.readInt();

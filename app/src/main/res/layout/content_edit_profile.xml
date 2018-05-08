@@ -45,6 +45,21 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_below="@+id/editTextSurname"
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="@string/editEmail"
+                android:inputType="textEmailAddress"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/editTextEmail"
             android:id="@+id/editTextBirthdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -114,11 +129,13 @@
             android:layout_centerHorizontal="true">
 
             <RadioButton
+                android:id="@+id/male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/radio_button_male" />
 
             <RadioButton
+                android:id="@+id/female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/radio_button_female"/>
@@ -145,11 +162,13 @@
             android:layout_below="@+id/editTextSmoker"
             android:layout_centerHorizontal="true">
             <RadioButton
+                android:id="@+id/noSmoker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/radio_button_no_smoker"/>
 
             <RadioButton
+                android:id="@+id/smoker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/radio_button_smoker"/>
@@ -299,10 +318,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editTextAbout"
             android:hint="@string/editAboutHint"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:scrollbars="vertical"/>
 
         <Button
+            android:id="@+id/editSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAllCaps="true"
@@ -311,7 +331,8 @@
             android:backgroundTint="@color/pink"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
-            android:layout_below="@+id/editAboutMe"/>
+            android:layout_below="@+id/editAboutMe"
+            />
     </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>

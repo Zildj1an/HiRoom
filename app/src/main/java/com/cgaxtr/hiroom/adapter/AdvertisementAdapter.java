@@ -85,7 +85,7 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
         });
 
 
-
+        //TODO change title, and change Locale
         holder.title.setText("Habitacion en " + ad.getAddress());
         holder.price.setText(String.format(new Locale("es", "ES"),"%d", ad.getPrice()));
         holder.phone.setText(String.format(new Locale("es", "ES"), "%d", ad.getOwnerPhone()));

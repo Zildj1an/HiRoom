@@ -75,8 +75,9 @@ public class MainActivity extends AppCompatActivity
         avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
-                 startActivity(i);
+                drawer.closeDrawer(GravityCompat.START);
+                Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(i);
             }
         });
 
