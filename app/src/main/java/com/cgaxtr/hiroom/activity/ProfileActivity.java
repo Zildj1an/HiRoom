@@ -68,6 +68,8 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        fab.setVisibility(View.GONE);
+
         name = findViewById(R.id.proName);
         city = findViewById(R.id.proCity);
         gender = findViewById(R.id.proGender);
@@ -104,6 +106,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 User u = new Gson().fromJson(response.toString(), User.class);
                 user = u;
+                fab.setVisibility(View.VISIBLE);
                 populateData(u);
             }
         }, new Response.ErrorListener() {

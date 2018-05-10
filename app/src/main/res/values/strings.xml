@@ -85,6 +85,8 @@
     <string name="room">Habitacion en </string>
     <string name="description">Descripción</string>
     <string name="place">Ubicación</string>
+    <string name="address">Dirección</string>
+    <string name="num">número</string>
 
     <!-- other strings like €, m^2... -->
     <string name="meter">m\u00B2</string>
@@ -106,6 +108,11 @@
     <string name="addSize">Tamaño</string>
     <string name="addPhotos">Fotos</string>
     <string name="addAbout">Sobre la habitación</string>
+
+    <!-- labels for add photo dialog -->
+    <string name="add">Añade una foto</string>
+    <string name="camera">Usa la cámara</string>
+    <string name="gallery">Subir desde la galería</string>
 
 
     <string name="title_activity_profile">Perfil</string>

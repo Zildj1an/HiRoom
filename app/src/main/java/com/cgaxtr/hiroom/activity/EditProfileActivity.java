@@ -2,6 +2,7 @@ package com.cgaxtr.hiroom.activity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +12,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
@@ -21,6 +23,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.cgaxtr.hiroom.R;
 import com.cgaxtr.hiroom.SessionManager;
+import com.cgaxtr.hiroom.fragment.ImageSelectorFragment;
 import com.cgaxtr.hiroom.model.User;
 import com.cgaxtr.hiroom.network.VolleySingleton;
 import com.cgaxtr.hiroom.utils.UrlsAPI;
@@ -33,7 +36,7 @@ import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class EditProfileActivity extends AppCompatActivity {
+public class EditProfileActivity extends AppCompatActivity implements ImageSelectorFragment.Callback{
 
     private static final String KEY_USER = "key_user";
 
@@ -42,6 +45,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private RadioGroup gender, smoker;
     private Button save;
     private SessionManager sessionManager;
+    private FloatingActionButton fab;
 
 
     @Override
@@ -110,6 +114,17 @@ public class EditProfileActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     Snackbar.make(v,getResources().getString(R.string.editError), Snackbar.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        fab = findViewById(R.id.editFab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageSelectorFragment add = new ImageSelectorFragment();
+                add.show(getSupportFragmentManager(), add.getTag());
+
             }
         });
 
@@ -187,8 +202,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 } catch (UnsupportedEncodingException e) {
                     return Response.error(new ParseError(e));
                 }
-
-
             }
         };
 
@@ -230,5 +243,16 @@ public class EditProfileActivity extends AppCompatActivity {
         u.setDescription(description.getText().toString());
 
         return u;
+    }
+
+
+    @Override
+    public void onClickCamera() {
+        Toast.makeText(getApplicationContext(), "camera", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onClickGallery() {
+        Toast.makeText(getApplicationContext(), "gallery", Toast.LENGTH_LONG).show();
     }
 }

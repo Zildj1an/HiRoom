@@ -8,7 +8,11 @@ import java.util.List;
 public class Advertisement implements Parcelable{
 
     private int idAdvertisement;
+    private String title;
+    private String type;
     private String address;
+    private int number;
+    private String city;
     private int price;
     private int size;
     private int floor;
@@ -19,6 +23,7 @@ public class Advertisement implements Parcelable{
     private String ownerEmail;
     private int ownerPhone;
 
+    public Advertisement(){};
 
     public int getIdAdvertisement() {
         return idAdvertisement;
@@ -108,6 +113,38 @@ public class Advertisement implements Parcelable{
         this.ownerPhone = ownerPhone;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -117,7 +154,11 @@ public class Advertisement implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
 
         dest.writeInt(idAdvertisement);
+        dest.writeString(title);
+        dest.writeString(type);
         dest.writeString(address);
+        dest.writeInt(number);
+        dest.writeString(city);
         dest.writeInt(price);
         dest.writeInt(size);
         dest.writeInt(floor);
@@ -131,7 +172,11 @@ public class Advertisement implements Parcelable{
 
     protected Advertisement(Parcel in) {
         idAdvertisement = in.readInt();
+        title = in.readString();
+        type = in.readString();
         address = in.readString();
+        number = in.readInt();
+        city = in.readString();
         price = in.readInt();
         size = in.readInt();
         floor = in.readInt();

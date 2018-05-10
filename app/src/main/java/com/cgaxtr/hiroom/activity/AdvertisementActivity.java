@@ -19,7 +19,7 @@ public class AdvertisementActivity extends AppCompatActivity {
 
     private ViewPager imageSwitcher;
     private ViewPagerAdapter adapter;
-    private TextView title, price, size, floor, description;
+    private TextView title, price, size, floor, description, address;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +41,13 @@ public class AdvertisementActivity extends AppCompatActivity {
         size = findViewById(R.id.advSize);
         floor = findViewById(R.id.advFloor);
         description = findViewById(R.id.advDescription);
+        address = findViewById(R.id.advAdress);
 
         title.setText(String.format(current, "%s %s", getResources().getString(R.string.room), ad.getAddress()));
         price.setText(String.format(current, "%d %s", ad.getPrice(), getResources().getString(R.string.price_month)));
         size.setText(String.format(current, "%d %s", ad.getSize(), getResources().getString(R.string.meter)));
         floor.setText(String.format(current,"%d%s", ad.getFloor(), getResources().getString(R.string.floor)));
+        address.setText(String.format(current, "%s %s %s %s %d",getResources().getString(R.string.address), ad.getType(), ad.getAddress(), getResources().getString(R.string.num) ,ad.getNumber()));
         description.setText(ad.getDescription());
 
 

@@ -15,7 +15,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"/>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/advImgSwitch"
@@ -26,9 +28,11 @@
         <RelativeLayout
             android:id="@+id/advDetails"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/advImgSwitch"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:paddingTop="5dp"
+            android:paddingEnd="5dp">
 
             <TextView
                 android:id="@+id/advPrice"
@@ -57,6 +61,16 @@
                 android:paddingStart="15dp"
                 android:textSize="18sp" />
 
+            <TextView
+                android:id="@+id/advAdress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/advPrice"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textStyle="bold"
+                android:textSize="18sp" />
+
         </RelativeLayout>
 
         <TextView
@@ -64,27 +78,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/advDetails"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginStart="5dp"
-            android:text="@string/description"/>
+            android:text="@string/description"
+            android:padding="10dp"/>
 
         <TextView
             android:id="@+id/advDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/advTitleDescription"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"/>
 
         <TextView
             android:id="@+id/advTitleUbication"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/advDescription"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginStart="5dp"
-            android:text="@string/place"/>
+            android:text="@string/place"
+            android:padding="10dp"/>
 
     </RelativeLayout>
 

@@ -64,7 +64,5 @@ public class SearchFragment extends Fragment {
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString() + " must implement ButtonsListeners");
         }
-
-
     }
 }

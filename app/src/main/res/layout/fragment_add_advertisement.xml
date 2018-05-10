@@ -9,6 +9,7 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
+            android:id="@+id/addLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp">
@@ -193,6 +194,7 @@
                 android:inputType="textMultiLine" />
 
             <Button
+                android:id="@+id/addSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/addDescription"
