@@ -1,15 +1,28 @@
 package com.cgaxtr.hiroom.activity;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Toast;
@@ -25,6 +38,7 @@ import com.cgaxtr.hiroom.R;
 import com.cgaxtr.hiroom.SessionManager;
 import com.cgaxtr.hiroom.fragment.ImageSelectorFragment;
 import com.cgaxtr.hiroom.model.User;
+import com.cgaxtr.hiroom.network.ImageUploader;
 import com.cgaxtr.hiroom.network.VolleySingleton;
 import com.cgaxtr.hiroom.utils.UrlsAPI;
 import com.google.gson.Gson;
@@ -32,6 +46,8 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -39,6 +55,8 @@ import java.util.Calendar;
 public class EditProfileActivity extends AppCompatActivity implements ImageSelectorFragment.Callback{
 
     private static final String KEY_USER = "key_user";
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
+    private static final int REQUEST_IMAGE_GALLERY = 2;
 
     private EditText name, surname, date, city, phone, description, email;
     private SeekBar partying, organized, athlete, freak, sociable, active;
@@ -46,6 +64,7 @@ public class EditProfileActivity extends AppCompatActivity implements ImageSelec
     private Button save;
     private SessionManager sessionManager;
     private FloatingActionButton fab;
+    private ImageView avatar;
 
 
     @Override
@@ -54,6 +73,7 @@ public class EditProfileActivity extends AppCompatActivity implements ImageSelec
         setContentView(R.layout.activity_edit_profile);
 
         Toolbar toolbar = findViewById(R.id.editToolbar);
+        avatar = findViewById(R.id.editBackground);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -124,7 +144,6 @@ public class EditProfileActivity extends AppCompatActivity implements ImageSelec
             public void onClick(View v) {
                 ImageSelectorFragment add = new ImageSelectorFragment();
                 add.show(getSupportFragmentManager(), add.getTag());
-
             }
         });
 
@@ -246,13 +265,59 @@ public class EditProfileActivity extends AppCompatActivity implements ImageSelec
     }
 
 
+    //callbacks for bottom fragment---------
     @Override
     public void onClickCamera() {
-        Toast.makeText(getApplicationContext(), "camera", Toast.LENGTH_LONG).show();
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
     }
 
     @Override
     public void onClickGallery() {
-        Toast.makeText(getApplicationContext(), "gallery", Toast.LENGTH_LONG).show();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_IMAGE_GALLERY);
+        } else {
+            Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(galleryIntent, REQUEST_IMAGE_GALLERY);
+        }
+    }
+
+    //--------------------------------------
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults)
+    {
+        switch (requestCode) {
+            case REQUEST_IMAGE_GALLERY:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(galleryIntent, REQUEST_IMAGE_GALLERY);
+                } else {
+                    //Snackbar.make(this, "", Snackbar.LENGTH_LONG).show();
+                }
+                break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            //Bundle extras = data.getExtras();
+            //Bitmap imageBitmap = (Bitmap) extras.get("data");
+            //avatar.setImageBitmap(imageBitmap);
+        }else if (requestCode == REQUEST_IMAGE_GALLERY && resultCode == RESULT_OK && null != data) {
+            final Uri imageUri = data.getData();
+            try {
+                InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                avatar.setImageBitmap(selectedImage);
+                final ImageUploader uploader = new ImageUploader(this, UrlsAPI.UPLOAD_AVATAR);
+                uploader.execute(imageUri);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

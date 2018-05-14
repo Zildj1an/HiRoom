@@ -35,6 +35,7 @@ public class ImageSelectorFragment extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
                 listener.onClickCamera();
+                dismiss();
             }
         });
 
@@ -43,6 +44,7 @@ public class ImageSelectorFragment extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
                 listener.onClickGallery();
+                dismiss();
             }
         });
 
