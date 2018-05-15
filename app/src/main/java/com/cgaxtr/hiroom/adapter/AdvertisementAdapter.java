@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import java.util.Locale;
 public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdapter.MyViewHolder> {
 
     private static final String KEY_USER = "key_user";
+    private static final String KEY_ADVERTISEMENT = "key_advertisement";
 
     private List<Advertisement> list;
     private Context context;
@@ -62,6 +64,7 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, ProfileActivity.class);
+                i.putExtra(KEY_USER, list.get(position).getOwnerId());
                 context.startActivity(i);
             }
         });
@@ -79,13 +82,12 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, AdvertisementActivity.class);
-                i.putExtra(KEY_USER, list.get(position));
+                i.putExtra(KEY_ADVERTISEMENT, list.get(position));
                 context.startActivity(i);
             }
         });
 
 
-        //TODO change title, and change Locale
         holder.title.setText(ad.getTitle());
         holder.price.setText(String.format(Locale.getDefault(),"%d %s", ad.getPrice(), holder.itemView.getContext().getResources().getString(R.string.coin)));
         holder.phone.setText(String.format(Locale.getDefault(), "%d", ad.getOwnerPhone()));

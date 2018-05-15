@@ -3,8 +3,6 @@ package com.cgaxtr.hiroom.activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.cgaxtr.hiroom.R;
@@ -15,7 +13,7 @@ import java.util.Locale;
 
 public class AdvertisementActivity extends AppCompatActivity {
 
-    private static final String KEY_USER = "key_user";
+    private static final String KEY_ADVERTISEMENT = "key_advertisement";
 
     private ViewPager imageSwitcher;
     private ViewPagerAdapter adapter;
@@ -29,7 +27,7 @@ public class AdvertisementActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_advertisement);
 
-        Advertisement ad = getIntent().getParcelableExtra(KEY_USER);
+        Advertisement ad = getIntent().getParcelableExtra(KEY_ADVERTISEMENT);
 
         imageSwitcher = findViewById(R.id.advImgSwitch);
         //TODO pass images list to adapter

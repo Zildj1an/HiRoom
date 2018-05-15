@@ -108,6 +108,7 @@
     <string name="addSize">Tamaño</string>
     <string name="addPhotos">Fotos</string>
     <string name="addAbout">Sobre la habitación</string>
+    <string name="addHint">Haga click sobre el icono para añadir una foto</string>
 
     <!-- labels for add photo dialog -->
     <string name="add">Añade una foto</string>

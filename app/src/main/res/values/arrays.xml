@@ -5,6 +5,7 @@
         <item>Nuevo anuncio</item>
         <item>Tus anuncios</item>
         <item>Acerca de</item>
+        <item>Resultados</item>
     </string-array>
     
     <string-array name="tracks">

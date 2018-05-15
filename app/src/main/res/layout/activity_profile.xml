@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/user"
                 app:layout_collapseMode="parallax"
-                android:scaleType="fitEnd"/>
+                android:scaleType="centerCrop"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/proToolbar"

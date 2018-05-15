@@ -46,6 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ProgressBar partying, organized, athlete, freak, sociable, active;
     private User user;
     private Button report;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
         setTitle(getResources().getString(R.string.title_activity_profile));
 
         sessionManager = new SessionManager(getApplicationContext());
+        id = getIntent().getIntExtra(KEY_USER,sessionManager.getId());
 
         fab = findViewById(R.id.proFab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -67,8 +69,6 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-        fab.setVisibility(View.GONE);
 
         name = findViewById(R.id.proName);
         city = findViewById(R.id.proCity);
@@ -89,7 +89,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        loadUserData(sessionManager.getId());
+        loadUserData(id);
     }
 
     @Override
@@ -106,7 +106,6 @@ public class ProfileActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 User u = new Gson().fromJson(response.toString(), User.class);
                 user = u;
-                fab.setVisibility(View.VISIBLE);
                 populateData(u);
             }
         }, new Response.ErrorListener() {
@@ -127,7 +126,8 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void populateData(User user){
-        name.setText(String.format(getResources().getConfiguration().locale, "%s %s", user.getName(), user.getSurname()));
+        String surname = user.getSurname() == null ? "" : user.getSurname();
+        name.setText(String.format(getResources().getConfiguration().locale, "%s %s", user.getName(), surname));
         city.setText(user.getCity());
 
         if(user.getGender() != null){
@@ -163,7 +163,7 @@ public class ProfileActivity extends AppCompatActivity {
         if(sessionManager.getId() == user.getId()){
             report.setVisibility(View.INVISIBLE);
         }else{
-            fab.setVisibility(View.VISIBLE);
+            fab.setVisibility(View.INVISIBLE);
         }
     }
 

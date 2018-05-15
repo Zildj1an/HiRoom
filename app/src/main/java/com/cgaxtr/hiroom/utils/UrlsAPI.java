@@ -10,4 +10,5 @@ public class UrlsAPI {
     public static final String UPDATE_USER = BASE_PATH + "user/{id}";
     public static final String ADVERTISEMENT = BASE_PATH + "advertisement";
     public static final String UPLOAD_AVATAR = BASE_PATH + "user/update_profile_image";
+    public static final String SEARCH = BASE_PATH + "advertisement/search/{city}";
 }

@@ -144,12 +144,14 @@ public class MainActivity extends AppCompatActivity
                 fg = new AddAdvertisementFragment();
                 break;
             case 2:
+            case 4:
                 fg = new ListAdvertisementsFragment();
                 fg.setArguments(bundle);
                 break;
             case 3:
                 fg = new AboutFragment();
                 break;
+
         }
 
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -179,8 +181,11 @@ public class MainActivity extends AppCompatActivity
     public void onSearchClickedEvent() {
         EditText where = findViewById(R.id.seaSearch);
         String city = where.getText().toString();
-        //put data into bundle
-
+        bundle = new Bundle();
+        bundle.putString(KEY_URL, UrlsAPI.SEARCH.replace("{city}", city));
+        navIndex = 4;
+        loadFragment();
+        where.setText("");
     }
 
     @Override
