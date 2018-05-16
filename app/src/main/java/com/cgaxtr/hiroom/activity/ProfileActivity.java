@@ -162,6 +162,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         if(sessionManager.getId() == user.getId()){
             report.setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.VISIBLE);
         }else{
             fab.setVisibility(View.INVISIBLE);
         }

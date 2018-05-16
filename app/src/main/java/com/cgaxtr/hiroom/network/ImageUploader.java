@@ -17,35 +17,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 //TODO display progressbar to show progress
-public class ImageUploader extends AsyncTask<Uri, Integer, Boolean>{
-    private Context context;
+public class ImageUploader extends AsyncTask<String, Integer, Boolean>{
     private String url;
+    private int id;
 
-    public ImageUploader(Context context, String url){
-        this.context = context;
+    public ImageUploader(String url, int id){
         this.url = url;
-    }
-
-    private String getRealPathFromURI(Context context, Uri contentUri) {
-        Cursor cursor = null;
-        try {
-            String[] proj = { MediaStore.Images.Media.DATA };
-            cursor = context.getContentResolver().query(contentUri,  proj, null, null, null);
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
-        } catch (Exception e) {
-            Log.e("TAG", "getRealPathFromURI Exception : " + e.toString());
-            return "";
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
+        this.id = id;
     }
 
     @Override
-    protected Boolean doInBackground(Uri... uris) {
+    protected Boolean doInBackground(String... strings) {
         boolean ok = true;
 
         HttpURLConnection conn = null;
@@ -57,8 +39,8 @@ public class ImageUploader extends AsyncTask<Uri, Integer, Boolean>{
         byte[] buffer;
         int maxBufferSize = 1 * 1024 * 1024;
 
-        for (Uri uri : uris) {
-            File sourceFile = new File(getRealPathFromURI(context, uri));
+        for (String path : strings) {
+            File sourceFile = new File(path);
             String serverResponseMessage;
             try {
                 FileInputStream fileInputStream = new FileInputStream(sourceFile.getPath());
@@ -67,11 +49,12 @@ public class ImageUploader extends AsyncTask<Uri, Integer, Boolean>{
                 conn.setDoInput(true); // Allow Inputs
                 conn.setDoOutput(true); // Allow Outputs
                 conn.setUseCaches(false); // Don't use a Cached Copy
+
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Connection", "Keep-Alive");
                 conn.setRequestProperty("ENCTYPE", "multipart/form-data");
+                conn.setRequestProperty("User-Agent", "Android Multipart HTTP Client 1.0");
                 conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
-                conn.setRequestProperty("file", sourceFile.getName());
                 dos = new DataOutputStream(conn.getOutputStream());
                 dos.writeBytes(twoHyphens + boundary + lineEnd);
                 dos.writeBytes("Content-Disposition: form-data; name=\"" + "file" + "\";filename=" + sourceFile.getName() + lineEnd);
@@ -88,6 +71,12 @@ public class ImageUploader extends AsyncTask<Uri, Integer, Boolean>{
 
                 }
                 dos.writeBytes(lineEnd);
+                dos.writeBytes(twoHyphens + boundary + lineEnd);
+                dos.writeBytes("Content-Disposition: form-data; name=\"" + "id" + "\"" + lineEnd);
+                dos.writeBytes(lineEnd);
+                dos.writeBytes(Integer.toString(id));
+                dos.writeBytes(lineEnd);
+
                 dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
                 int serverResponseCode = conn.getResponseCode();
                 serverResponseMessage = conn.getResponseMessage();

@@ -52,6 +52,7 @@
         app:layout_anchor="@id/proApp_bar"
         app:layout_anchorGravity="bottom|end"
         app:srcCompat="@drawable/ic_edit_white_24dp"
-        app:backgroundTint="@color/pink"/>
+        app:backgroundTint="@color/pink"
+        android:visibility="gone"/>
 
 </android.support.design.widget.CoordinatorLayout>
