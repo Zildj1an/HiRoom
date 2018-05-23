@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.cgaxtr.hiroom.R;
 import com.cgaxtr.hiroom.activity.AdvertisementActivity;
 import com.cgaxtr.hiroom.activity.ProfileActivity;
@@ -93,6 +94,11 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
         holder.phone.setText(String.format(Locale.getDefault(), "%d", ad.getOwnerPhone()));
         holder.user.setText(ad.getOwnerName());
         holder.numPic.setText(String.format(Locale.getDefault(), "%d", ad.getImages().size()));
+
+        if(ad.getImages().size() != 0)
+            Glide.with(context).load(ad.getImages().get(0)).into(holder.image);
+        else
+            holder.image.setImageResource(R.drawable.image_not_found);
     }
 
     @Override

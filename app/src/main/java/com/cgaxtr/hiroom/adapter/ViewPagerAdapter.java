@@ -3,33 +3,26 @@ package com.cgaxtr.hiroom.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.android.volley.toolbox.ImageLoader;
+import com.bumptech.glide.Glide;
 import com.cgaxtr.hiroom.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ViewPagerAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private List<Integer> sliderImg;
-    private ImageLoader imageLoader;
+    private List<String> sliderImg;
 
     public ViewPagerAdapter(List list, Context context){
-        //this.sliderImg = list;
-        sliderImg = new ArrayList<>();
-        //this.sliderImg.add(R.drawable.room);
-        this.sliderImg.add(R.drawable.room2);
-        this.sliderImg.add(R.drawable.room3);
-        this.sliderImg.add(R.drawable.room4);
+        this.sliderImg = list;
         this.context = context;
+
         layoutInflater = LayoutInflater.from(context);
     }
 
@@ -48,7 +41,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
         View myImageLayout = layoutInflater.inflate(R.layout.slide_layout, container, false);
         ImageView myImage = myImageLayout.findViewById(R.id.slideImageView);
-        myImage.setImageResource(sliderImg.get(position));
+        Glide.with(context).load(sliderImg.get(position)).into(myImage);
         container.addView(myImageLayout, 0);
         return myImageLayout;
     }

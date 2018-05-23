@@ -16,9 +16,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.cgaxtr.hiroom.R;
-import com.cgaxtr.hiroom.SessionManager;
+import com.cgaxtr.hiroom.utils.SessionManager;
 import com.cgaxtr.hiroom.model.User;
 import com.cgaxtr.hiroom.network.VolleySingleton;
 import com.cgaxtr.hiroom.utils.UrlsAPI;
@@ -31,7 +30,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {

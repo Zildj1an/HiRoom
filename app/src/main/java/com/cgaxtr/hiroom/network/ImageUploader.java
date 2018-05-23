@@ -1,10 +1,6 @@
 package com.cgaxtr.hiroom.network;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.AsyncTask;
-import android.provider.MediaStore;
 import android.util.Log;
 
 import java.io.DataOutputStream;

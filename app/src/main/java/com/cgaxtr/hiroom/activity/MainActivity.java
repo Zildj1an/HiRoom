@@ -15,19 +15,16 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.cgaxtr.hiroom.R;
-import com.cgaxtr.hiroom.SessionManager;
+import com.cgaxtr.hiroom.utils.SessionManager;
 import com.cgaxtr.hiroom.fragment.AboutFragment;
 import com.cgaxtr.hiroom.fragment.AddAdvertisementFragment;
 import com.cgaxtr.hiroom.fragment.ListAdvertisementsFragment;
 import com.cgaxtr.hiroom.fragment.SearchFragment;
 import com.cgaxtr.hiroom.model.User;
 import com.cgaxtr.hiroom.utils.UrlsAPI;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SearchFragment.ButtonsListeners {

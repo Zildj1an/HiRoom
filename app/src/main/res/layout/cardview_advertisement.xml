@@ -19,7 +19,6 @@
                 android:id="@+id/cardAdvImgage"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:src="@drawable/room"
                 android:layout_alignParentTop="true"
                 android:scaleType="centerCrop"/>
 

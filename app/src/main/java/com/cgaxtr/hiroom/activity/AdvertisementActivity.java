@@ -30,8 +30,8 @@ public class AdvertisementActivity extends AppCompatActivity {
         Advertisement ad = getIntent().getParcelableExtra(KEY_ADVERTISEMENT);
 
         imageSwitcher = findViewById(R.id.advImgSwitch);
-        //TODO pass images list to adapter
-        adapter = new ViewPagerAdapter(null, this);
+
+        adapter = new ViewPagerAdapter(ad.getImages(), this);
         imageSwitcher.setAdapter(adapter);
 
         title = findViewById(R.id.advTitle);

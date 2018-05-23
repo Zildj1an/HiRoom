@@ -1,4 +1,4 @@
-package com.cgaxtr.hiroom;
+package com.cgaxtr.hiroom.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -14,5 +14,7 @@
         <item>Plaza</item>
         <item>Glorieta</item>
         <item>Travesia</item>
+        <item>Paseo</item>
+        <item>Carretera</item>
     </string-array>
 </resources>

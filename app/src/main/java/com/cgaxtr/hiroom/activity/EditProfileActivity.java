@@ -35,7 +35,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.cgaxtr.hiroom.R;
-import com.cgaxtr.hiroom.SessionManager;
+import com.cgaxtr.hiroom.utils.SessionManager;
 import com.cgaxtr.hiroom.fragment.ImageSelectorFragment;
 import com.cgaxtr.hiroom.model.User;
 import com.cgaxtr.hiroom.network.ImageUploader;
@@ -317,6 +317,7 @@ public class EditProfileActivity extends AppCompatActivity implements ImageSelec
                     Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     startActivityForResult(galleryIntent, REQUEST_IMAGE_GALLERY);
                 } else {
+                    //TODO
                     //Snackbar.make(this, "", Snackbar.LENGTH_LONG).show();
                 }
                 break;

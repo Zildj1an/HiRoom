@@ -17,7 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.cgaxtr.hiroom.R;
-import com.cgaxtr.hiroom.SessionManager;
+import com.cgaxtr.hiroom.utils.SessionManager;
 import com.cgaxtr.hiroom.model.User;
 import com.cgaxtr.hiroom.network.VolleySingleton;
 import com.cgaxtr.hiroom.utils.UrlsAPI;
