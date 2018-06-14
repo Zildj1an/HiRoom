@@ -16,6 +16,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.cgaxtr.hiroom.R;
 import com.cgaxtr.hiroom.utils.SessionManager;
 import com.cgaxtr.hiroom.model.User;
@@ -40,7 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
     private FloatingActionButton fab;
     private SessionManager sessionManager;
     private TextView name, city, description, phone, age;
-    private ImageView gender, smoker;
+    private ImageView gender, smoker, avatar;
     private ProgressBar partying, organized, athlete, freak, sociable, active;
     private User user;
     private Button report;
@@ -82,6 +84,7 @@ public class ProfileActivity extends AppCompatActivity {
         phone = findViewById(R.id.proPhone);
         age = findViewById(R.id.proAge);
         report = findViewById(R.id.proReport);
+        avatar = findViewById(R.id.proBackground);
     }
 
     @Override
@@ -124,6 +127,9 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void populateData(User user){
+        RequestOptions options = new RequestOptions().error(R.drawable.user);
+        Glide.with(this).load(user.getPathImg()).apply(options).into(avatar);
+
         String surname = user.getSurname() == null ? "" : user.getSurname();
         name.setText(String.format(getResources().getConfiguration().locale, "%s %s", user.getName(), surname));
         city.setText(user.getCity());

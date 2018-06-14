@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.cgaxtr.hiroom.R;
 import com.cgaxtr.hiroom.utils.SessionManager;
 import com.cgaxtr.hiroom.fragment.AboutFragment;
@@ -25,6 +27,8 @@ import com.cgaxtr.hiroom.fragment.ListAdvertisementsFragment;
 import com.cgaxtr.hiroom.fragment.SearchFragment;
 import com.cgaxtr.hiroom.model.User;
 import com.cgaxtr.hiroom.utils.UrlsAPI;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SearchFragment.ButtonsListeners {
@@ -35,7 +39,7 @@ public class MainActivity extends AppCompatActivity
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private NavigationView navigationView;
-    private ImageView avatar;
+    private CircleImageView avatar;
     private View headerView;
     private String[] titles;
     private int navIndex = 0;
@@ -171,6 +175,8 @@ public class MainActivity extends AppCompatActivity
         User u = sessionManager.getUserData();
         user.setText(u.getName());
         email.setText(u.getEmail());
+        RequestOptions options = new RequestOptions().error(R.drawable.default_user);
+        Glide.with(this).load(u.getPathImg()).apply(options).into(avatar);
 
     }
 

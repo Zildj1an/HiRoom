@@ -12,7 +12,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-//TODO display progressbar to show progress
 public class ImageUploader extends AsyncTask<String, Integer, Boolean>{
     private String url;
     private int id;

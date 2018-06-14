@@ -3,6 +3,8 @@ package com.cgaxtr.hiroom.activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.cgaxtr.hiroom.R;
@@ -18,6 +20,7 @@ public class AdvertisementActivity extends AppCompatActivity {
     private ViewPager imageSwitcher;
     private ViewPagerAdapter adapter;
     private TextView title, price, size, floor, description, address;
+    private WebView map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,10 @@ public class AdvertisementActivity extends AppCompatActivity {
         floor = findViewById(R.id.advFloor);
         description = findViewById(R.id.advDescription);
         address = findViewById(R.id.advAdress);
+        map = findViewById(R.id.advMap);
+        map.setWebViewClient(new WebViewClient());
+        map.getSettings().setJavaScriptEnabled(true);
+        map.loadUrl("https://www.google.com/maps/place/" + ad.getType() + " " + ad.getAddress() + " " + ad.getNumber() + " " + ad.getCity());
 
         title.setText(String.format(current, "%s %s", getResources().getString(R.string.room), ad.getAddress()));
         price.setText(String.format(current, "%d %s", ad.getPrice(), getResources().getString(R.string.price_month)));
@@ -47,7 +54,5 @@ public class AdvertisementActivity extends AppCompatActivity {
         floor.setText(String.format(current,"%d%s", ad.getFloor(), getResources().getString(R.string.floor)));
         address.setText(String.format(current, "%s %s %s %s %d",getResources().getString(R.string.address), ad.getType(), ad.getAddress(), getResources().getString(R.string.num) ,ad.getNumber()));
         description.setText(ad.getDescription());
-
-
     }
 }

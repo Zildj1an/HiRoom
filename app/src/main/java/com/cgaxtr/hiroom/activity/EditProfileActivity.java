@@ -34,6 +34,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.cgaxtr.hiroom.R;
 import com.cgaxtr.hiroom.utils.SessionManager;
 import com.cgaxtr.hiroom.fragment.ImageSelectorFragment;
@@ -162,6 +164,9 @@ public class EditProfileActivity extends AppCompatActivity implements ImageSelec
     }
 
     private void populateUserView(User u){
+        RequestOptions options = new RequestOptions().error(R.drawable.user);
+        Glide.with(this).load(u.getPathImg()).apply(options).into(avatar);
+
         name.setText(u.getName());
         surname.setText(u.getSurname());
         email.setText(u.getEmail());
